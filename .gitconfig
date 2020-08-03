@@ -1,0 +1,28 @@
+[core]
+	editor = code-insiders -w
+
+[user]
+	name = Mike Chirico (https://mchirico.github.io/)
+	email = mchirico@gmail.com
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+	st = status
+	co = checkout
+	p = push
+        pn = push origin n --force
+	di = diff --staged
+	ll = log --format=%B origin..HEAD
+	br = branch
+	cm = commit -am 'update'
+        rb = rebase master -i
+	l =  log --oneline
+	ls =  log --stat
+	lp = log -p
+	ln = log --oneline notes/commits
+	la = log --oneline --graph --decorate --all
+

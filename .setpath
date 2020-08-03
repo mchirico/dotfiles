@@ -1,0 +1,6 @@
+
+export GOPATH=$(pwd)
+export PATH="$(pwd)/bin:$PATH"
+export GOBIN="$(pwd)/bin"
+PATH=$GOPATH/bin:$PATH
+
