@@ -14,7 +14,6 @@ v1.20:
         go get k8s.io/kubernetes || true
         cd /go/src/k8s.io/kubernetes && git checkout v1.20.1 || git pull
         go get sigs.k8s.io/kind
-        export PATH=${HOME}/bin:${PATH}
 #     Node image
         kind build node-image --image=v1.20.1
 
