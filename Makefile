@@ -1,9 +1,25 @@
+ifndef $(GOPATH)
+  export GOPATH=/go
+  ${shell mkdir -p ${GOPATH}}
+endif
 
-.PHONY: go
-go:
-	wget https://dl.google.com/go/go1.14.4.linux-amd64.tar.gz
-	tar -C /usr/local -xzf go1.14.4.linux-amd64.tar.gz
-	rm -f go1.14.4.linux-amd64.tar.gz
+ifndef $(GOBIN)
+  export GOBIN=${GOPATH}/bin
+endif
+
+
+
+.PHONY: v1.20
+v1.20:
+        go get k8s.io/kubernetes || true
+        cd /go/src/k8s.io/kubernetes && git checkout v1.20.1 || git pull
+        go get sigs.k8s.io/kind
+        export PATH=${HOME}/bin:${PATH}
+#     Node image
+        kind build node-image --image=v1.20.1
+
+
+
 
 .PHONY: dev
 dev:
@@ -23,11 +39,11 @@ kubens:
 .PHONY: gitKind
 gitKind:
 	git clone https://github.com/mchirico/kind.git
-	
+
 
 .PHONY: kind
 kind:
-	GO111MODULE="on" go get sigs.k8s.io/kind@v0.8.1
+	GO111MODULE="on" go get sigs.k8s.io/kind
 
 
 .PHONY: kubernetes
