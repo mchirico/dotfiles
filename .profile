@@ -26,6 +26,12 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+
+export GOMAXPROCS=4
+export GOPATH=/go
+export GOBIN=/go/bin
+
+
 export PATH="$PATH:/home/codespace/bin"
 alias dps='docker ps --format "table{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}"'
 
