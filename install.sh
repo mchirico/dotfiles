@@ -1,11 +1,22 @@
 #!/bin/bash
+
+
+
+cd
+cp dotfiles/.profile ~/.profile
+cp dotfiles/.gitconfig ~/.gitconfig
+
+
+GO111MODULE="on" go get sigs.k8s.io/kind
+
+
 wget https://github.com/ahmetb/kubectx/releases/download/v0.9.1/kubectx_v0.9.1_linux_x86_64.tar.gz
 tar -xzf kubectx_v0.9.1_linux_x86_64.tar.gz 
-# mv kubectx /usr/local/bin/kubectx
+mv kubectx /go/bin/kubectx
 
 wget https://github.com/ahmetb/kubectx/releases/download/v0.9.1/kubens_v0.9.1_linux_x86_64.tar.gz
 tar -xzf kubens_v0.9.1_linux_x86_64.tar.gz 
-# mv kubens /usr/local/bin/kubens
+mv kubens /go/bin/kubens
 
 rm kubens_v0.9.1_linux_x86_64.tar.gz 
 rm kubectx_v0.9.1_linux_x86_64.tar.gz 
