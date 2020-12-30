@@ -3,8 +3,9 @@
 
 
 cd
-cp dotfiles/.profile ~/.profile
-cp dotfiles/.gitconfig ~/.gitconfig
+
+curl https://raw.githubusercontent.com/mchirico/dotfiles/master/.gitconfig -o ~/.gitconfig
+curl https://raw.githubusercontent.com/mchirico/dotfiles/master/.profile -o ~/.profile
 
 
 GO111MODULE="on" go get sigs.k8s.io/kind
