@@ -35,4 +35,9 @@ export GOBIN=/go/bin
 export PATH="$PATH:/home/codespace/bin"
 alias dps='docker ps --format "table{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}"'
 
+source <(kubectl completion bash)
+source <(k completion bash)
+
+
+
 
